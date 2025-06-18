@@ -18,7 +18,7 @@
     <meta content="" name="keywords">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Inter:300,300i,400,400i,500,500i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,6 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169007209-3"></script>
     <script>
@@ -41,577 +40,783 @@
 
         gtag('config', 'UA-169007209-3');
     </script>
+    
+    <!-- Basic Navigation CSS -->
+    <style>
+        /* Simple reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Basic top menu */
+        .top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .menu-logo {
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .menu-logo:hover {
+            color: #26a69a;
+        }
+        
+        .menu-items {
+            list-style: none;
+            display: flex;
+        }
+        
+        .menu-items li {
+            margin-left: 20px;
+        }
+        
+        .menu-items li a {
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .menu-items li a:hover {
+            color: #26a69a;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+        
+        /* Adjustment for header */
+        #header {
+            padding-top: 90px;
+        }
+        
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                padding: 15px 0;
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .menu-items li {
+                margin: 10px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .menu-items.active {
+                display: flex;
+            }
+        }
 
-
-
-    <!-- =======================================================
-    * Template Name: Personal - v2.1.0
-    * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+        /* For smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+        
+        /* For typing animation */
+        .typing {
+            color: #26a69a !important;
+        }
+        
+        /* Styling for certification list */
+        .certification-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .certification-list li {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #26a69a;
+            transition: all 0.3s ease;
+        }
+        
+        .certification-list li:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .certification-list li strong a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .certification-list li strong a:hover {
+            color: #26a69a;
+        }
+        
+        /* Styling for project list */
+        .project-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .project-list li {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #26a69a;
+            transition: all 0.3s ease;
+        }
+        
+        .project-list li:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .project-list li strong a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .project-list li strong a:hover {
+            color: #26a69a;
+        }
+        
+        .project-list li p {
+            color: #4a6375;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- ======= Header ======= -->
-<header id="header" class="header-tops">
-
-    <div class="container">
-
-        <h1><a href="index.html">Marina Rukavitsyna</a></h1>
-        <h2 style="color:#fff">I'm Result Driven Leader <span class="typing" style="color:#12D640"></span></h2>
-        <nav class="nav-menu d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="#header"> <span>Home</span></a></li>
-                <li><a href="#about"><span>About</span></a></li>
-                <li><a href="#education"> <span>Education</span></a></li>
-                <li><a href="#experience"> <span>Experience</span></a></li>
-                <li><a href="#portfolio"> <span>Projects</span></a></li>
-                <li><a href="#contacts"> <span>Contact</span></a></li>
-                <li><a href="https://drive.google.com/file/d/1_AlkyaYi5fweDRDz3RPesblfBNPZhyvT/view?usp=drive_link"> <span>CV</span></a></li>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Basic Top Navigation Menu -->
+    <nav class="top-menu">
+        <div class="menu-container">
+            <a href="#header" class="menu-logo">Marina Rukavitsyna</a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="bx bx-menu"></i>
+            </button>
+            <ul class="menu-items" id="menuItems">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contacts">Contact</a></li>
+                <li><a href="https://drive.google.com/file/d/1_AlkyaYi5fweDRDz3RPesblfBNPZhyvT/view?usp=drive_link" target="_blank">CV</a></li>
             </ul>
-        </nav><!-- .nav-menu -->
-
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/marina-rukavitsyna/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            <a href="https://github.com/MarinaRukavitsyna" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-            <a href="mailto:marina.rukavitsyna@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-            <a href="https://medium.com/@marinarukavitsyna" target="_blank" class="medium"><i class="bx bxl-medium"></i></a>
         </div>
+    </nav>
 
-    </div>
-</header><!-- End Header -->
-
-<!-- ======= About Section ======= -->
-<section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-        <div class="section-title">
-            <h2>About</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4" data-aos="fade-right">
-                <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header-tops">
+        <div class="container">
+            <h1><a href="index.html">Marina Rukavitsyna</a></h1>
+            <h2 style="color:#2c3e50">I'm Result Driven <span class="typing" style="color:#26a69a"></span></h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/marina-rukavitsyna/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://github.com/MarinaRukavitsyna" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                <a href="mailto:marina.rukavitsyna@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
+                <a href="https://medium.com/@marinarukavitsyna" target="_blank" class="medium"><i class="bx bxl-medium"></i></a>
             </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                <p>As an experienced software developer, I bring a strong foundation in technical knowledge.
-                  However, my true value lies in my ability to lead and drive product success.
-                  With a track record of managing multiple tasks simultaneously and an inherent aptitude for effective communication,
-                  I possess the essential skills to bridge the gap between development teams and stakeholders.
-                  My analytical mindset enables me to make informed decisions, while my excellent interpersonal and presentation skills
-                  allow me to convey complex ideas with clarity and conviction.
-                  With these qualities, I am well-prepared to guide and shape product strategies for optimal results.
-                </p>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul>
-                            <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 29 July 1987</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +49 178 1351095</li>
-                        </ul>
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+        <!-- ======= About Me ======= -->
+        <div class="about-me container">
+
+            <div class="section-title">
+                <h2>About</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                    <p>Hi, I'm Marina — a Backend Software Engineer with over 6 years of experience building scalable microservices and data-driven platforms, primarily using Go and .NET.
+                      Currently, I'm solving complex engineering challenges at HelloFresh SE, contributing to platform modernization efforts, GraphQL migrations, and observability improvements. Previously, I worked at Staffbase and Dirico, where I helped evolve internal tooling, optimize APIs, and improve developer workflows.                     
+                      Beyond my technical expertise, I'm passionate about communication and team growth. I've spoken at international conferences like HUSTEF and Women in Agile Europe, and serve as a mentor and VP of Education at Toastmasters. My leadership extends to DEI initiatives, where I actively support inclusive engineering cultures.                                          
+                    </p>
+                </div>
+            </div>
+
+        </div><!-- End About Me -->
+
+        <!-- ======= Interests ======= -->
+        <div class="interests container">
+
+            <div class="section-title">
+                <h2>Interests</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <i class="ri-global-line" style="color: #ffbb2c;"></i>
+                        <h3>Software Development</h3>
                     </div>
-                    <div class="col-lg-6">
-                        <ul>
-                            <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Berlin, Germany</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> marina.rukavitsyna@gmail.com</li>
-                        </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <i class="ri-global-line" style="color: #ffbb2c;"></i>
+                        <h3>Self-Development</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <i class="ri-global-line" style="color: #ffbb2c;"></i>
+                        <h3>Leadership</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="ri-global-line" style="color: #5578ff;"></i>
+                        <h3>Product Enablement</h3>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div><!-- End About Me -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-        <div class="section-title">
-            <h2>Interests</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-global-line" style="color: #ffbb2c;"></i>
-                    <h3>Leadership</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-global-line" style="color: #ffbb2c;"></i>
-                    <h3>Self-Development</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-global-line" style="color: #ffbb2c;"></i>
-                    <h3>Software Development</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                <div class="icon-box">
-                    <i class="ri-global-line" style="color: #5578ff;"></i>
-                    <h3>Product enablement</h3>
-                </div>
-            </div>
-        </div>
-
-    </div><!-- End Interests -->
-</section><!-- End About Section -->
+        </div><!-- End Interests -->
+    </section><!-- End About Section -->
 
 
 
-<!-- ======= Education Section ======= -->
-<section id="education" class="services">
-    <div class="container">
-        <div class="section-title">
-            <h2>Education</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-12" data-aos="fade-up" style="display: inline-block;">
-                <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-                    <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>MSc. in Web & Data Science</em></p>
-                    <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>GPA: 1.9</em></p>
-                    <h5 style="text-align:left;padding: 0px 10px;">October 2018 - July 2021</h5>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-                    <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>B.Sc. Computer Science</em></p>
-                    <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>GPA: 2.3</em></p>
-                    <h5 style="text-align:left;padding: 0px 10px;">September 2004 - June 2009</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio">
+    <!-- ======= Education Section ======= -->
+    <section id="education" class="services">
         <div class="container">
             <div class="section-title">
-              <h2>Online Certification</h2>
+                <h2>Education</h2>
             </div>
-
-            <div class="row portfolio-container" style="position: relative; height: 437.75px;">
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 0px; top: 0px;">
-                  <center><h4>PMI / IBM IT Project Manager</h4></center>
-                  <div class="portfolio-wrap">
-                  <img src="assets/img/certification/ibm.png" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>PMI / IBM IT Project Manager</h4>
-                    <div class="portfolio-links">
-                      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/H74QNJYT75MK" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up" style="display: inline-block;">
+                    <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
+                        <p style="text-align:left;padding: 5px 10px;"><em>MSc. in Web & Data Science</em></p>
+                        <p style="text-align:left;padding: 5px 10px;"><em>GPA: 1.9</em></p>
+                        <h5 style="text-align:left;padding: 0px 10px;">October 2018 - July 2021</h5>
                     </div>
-                  </div>
-                 </div>
+                    <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
+                        <p style="text-align:left;padding: 5px 10px;"><em>B.Sc. Computer Science</em></p>
+                        <p style="text-align:left;padding: 5px 10px;"><em>GPA: 2.3</em></p>
+                        <h5 style="text-align:left;padding: 0px 10px;">September 2004 - June 2009</h5>
+                    </div>
                 </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 0px; top: 0px;">
-                  <h4>Agile Development & Scrum</h4>
-                  <div class="portfolio-wrap">
-                      <img src="assets/img/certification/ibm.png" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Agile Development & Scrum</h4>
-                          <div class="portfolio-links">
-                              <a href="https://www.coursera.org/account/accomplishments/certificate/8V22J4D57NTZ" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 740px; top: 0px;">
-                  <h4>Communication Foundations</h4>
-                  <div class="portfolio-wrap">
-                  <img src="assets/img/certification/linkedin.png" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Communication Foundations</h4>
-                    <div class="portfolio-links">
-                      <a href="https://www.linkedin.com/learning/certificates/fc25d3d0ed3753c7820938027ee3a5ececccefe6fcb9640204a288f970b63e0e" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 370px; top: 0px;">
-                  <h4>Project Management Foundations and Planning</h4>
-                  <div class="portfolio-wrap">
-                        <img src="assets/img/certification/skillup.png" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Project Management Foundations, Initiation, and Planning</h4>
-                            <div class="portfolio-links">
-                                <a href="https://coursera.org/share/7ed54fa29d8ea6265624f2a99e011c91" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-project" style="position: absolute; left: 0px; top: 218.875px;">
-                  <h4>Be the Manager Who Fights for Their Team</h4>
-                  <div class="portfolio-wrap">
-                  <img src="assets/img/certification/linkedin.png" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Be the Manager Who Fights for Their Team</h4>
-                    <div class="portfolio-links">
-                      <a href="https://www.linkedin.com/learning/certificates/234d6edca125b77a73a40793f79ad05451f7785cc58a00a7e30472ba939a33e5" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-project" style="position: absolute; left: 370px; top: 218.875px;">
-                  <h4>Decision-Making in High-Stress Situations</h4>
-                  <div class="portfolio-wrap">
-                  <img src="assets/img/certification/linkedin.png" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Decision-Making in High-Stress Situations</h4>
-                    <div class="portfolio-links">
-                      <a href="https://www.linkedin.com/learning/certificates/464ae898de3f3eeb691377d9a8528181608b2e5baf4d1ba285a2cbcf6aaaaaa8" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
-
-          </div>
-    </div>
-
-</section>
-<!-- End Education Section -->
-
-
-
-<!-- Start Experience Section -->
-
-<section id="experience" class="services">
-    <div class="container">
-        <div class="section-title">
-            <h2>Experience</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-12" data-aos="fade-up">
-                <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <h4 style="text-align:left;"><a href="https://www.hellofreshgroup.com/en/" style="color:#12d640">HelloFresh</a><br> </h4>
-                    <h5 style="text-align:left;">August 2024 - Present</h5>
-                    <p style="text-align:left;color:#fff"><em>Software Engineer</em></p>
-                    <p style="text-align:left;color:#fff"><em>Technical Stack: Go, GraphQL, GRPs, Docker, Kubernetes, MongoDB, PostgreSQL, Kafka, Grafana, Honeycomb, CI/CD, DDD, ADD</em></p>
-                    <ul style="text-align:left;">
-                        <li>Developed and optimized backend services in a microservices ecosystem, improving delivery routing performance</li>
-                        <li>Designed and optimized data flows that enable clients to seamlessly select their weekly mealkits, handling thousands of data points daily.</li>
-                        <li>Enhanced system observability using Prometheus metrics and tracing tools, leading to faster incident resolution</li>
-                        <li>Engaged in cross-team knowledge-sharing sessions, improving service documentation and onboarding practices</li>
-                    </ul>
+
+        <div class="portfolio">
+            <div class="container">
+                <div class="section-title">
+                  <h2>Online Certification</h2>
                 </div>
-                <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <h4 style="text-align:left;"><a href="https://staffbase.com/en/" style="color:#12d640">Staffbase</a><br> </h4>
-                  <h5 style="text-align:left;">December 2022 - May 2024</h5>
-                  <p style="text-align:left;color:#fff"><em>Software Engineer</em></p>
-                  <p style="text-align:left;color:#fff"><em>Technical Stack: Golang, Open API, Kubernetes, Docker, Temporal, MongoDB, Grafana, CI/CD</em></p>
-                  <ul style="text-align:left;">
-                      <li>Developed REST APIs and implemented authentication protocols, such as OAuth, to securely expose data to clients</li>
-                      <li>Decreased system downtime by 10% through proactive monitoring and issue resolution</li>
-                      <li>Contributed to software design and architecture discussions, providing scalable and maintainable solutions</li>
+
+                <div class="certifications-container">
+                  <ul class="certification-list">
+                    <li>
+                      <strong><a href="https://www.apollographql.com/tutorials/certifications/3c0a439d-9c53-4acc-aa50-c15f0b433859" target="_blank">GraphQl Developer</a></strong> - Apollo GraphQL - 20225 
+                    </li>
+                    <li>
+                      <strong><a href="https://www.coursera.org/account/accomplishments/specialization/8FZBCAZDKZVX" target="_blank">IBM DevOps and Software Engineering</a></strong> - Coursera & IBM - 2024
+                    </li>
+                    <li>
+                      <strong><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/H74QNJYT75MK" target="_blank">PMI / IBM IT Project Manager</a></strong> - Coursera - 2023
+                    </li>
+                    <li>
+                      <strong><a href="https://www.coursera.org/account/accomplishments/certificate/8V22J4D57NTZ" target="_blank">Agile Development & Scrum</a></strong> - IBM - 2023
+                    </li>
+                    <li>
+                      <strong><a href="https://coursera.org/share/7ed54fa29d8ea6265624f2a99e011c91" target="_blank">Project Management Foundations, Initiation, and Planning</a></strong> - Coursera - 2023
+                    </li>
                   </ul>
                 </div>
-                <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <h4 style="text-align:left;"><a href="https://dirico.io/en/" style="color:#12d640">Dirico</a><br> </h4>
-                    <h5 style="text-align:left;">August 2019 - May 2022</h5>
-                    <p style="text-align:left;color:#fff"><em>Backend Developer</em></p>
-                    <p style="text-align:left;color:#fff"><em>Technical Stack: .NET, C#, REST API, SQL, Azure, Elasticsearch, Postman</em></p>
-                    <ul style="text-align:left;">
-                        <li>Designed and developed a software architecture resulting in 30% reduction in development time across multiple third-party API integration projects</li>
-                        <li>Led a team of engineers to develop a new product in agile environments that achieved a 92% customer satisfaction rating</li>
-                        <li>Implemented an analytics module for a SaaS application, resulting in enhanced user experience</li>
-                        <li>Initiated, wrote and coordinated the product documentation with 100+ articles that improved teams' productivity</li>
-                        <li>Hosted sharing knowledge sessions and collaborated with cross-functional teams through code reviews, pair programming, and best practices discussions</li>
-                    </ul>
-                </div>
-                <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <h4 style="text-align:left;"><a href="https://www.uni-koblenz.de/de" style="color:#12d640">University of Koblenz and Landau</a><br> </h4>
-                    <h5 style="text-align:left;">April 2020 - September 2020</h5>
-                    <p style="text-align:left;color:#fff"><em>Student Teaching Assistant</em></p>
-                    <p style="text-align:left;color:#fff"><em>Java, Python</em></p>
-                    <ul style="text-align:left;">
-                        <li>Wrote technical requirements for the internal application</li>
-                        <li>Wrote Java and Python applications to analyze data</li>
-                    </ul>
-                </div>
-                <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <h4 style="text-align:left;"><a href="https://www.devexpress.com/" target="_blank" style="color:#12d640">Developer Express Inc.</a><br> </h4>
-                    <h5 style="text-align:left;">January 2009 - September 2018</h5>
-                    <p style="text-align:left;color:#fff"><em>1st and 2nd Level Technical Support</em></p>
-                    <p style="text-align:left;color:#fff"><em>Technical Stack: .NET, C#, MVC, SQL, JavaScript, Angular, Node.JS</em></p>
-                    <ul style="text-align:left;">
-                        <li>Led a customer success team that improved customer experience and satisfaction</li>
-                        <li>Executed customer engagement initiatives that resulted in a 30% increase in customer engagement</li>
-                        <li>Provided exceptional customer service resulting in a Net Promoter Score of 98%</li>
-                        <li>Resolved customer technical issues, resulting in an improved customer satisfaction and experience</li>
-                        <li>Initiated, managed, and launched a series of product tutorials on YouTube with 10.000+ views in 2 years</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- End Experience Section -->
-
-<!-- Start Project Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-sm">Third-Party API Integration</li>
-            <li data-filter=".filter-project">Project</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <center><h4>LinkedIn API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/linkedin.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/linkedin.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
               </div>
+        </div>
+
+    </section>
+    <!-- End Education Section -->
+
+
+
+    <!-- Start Experience Section -->
+
+    <section id="experience" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
             </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <center><h4>Facebook API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/facebook.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/facebook.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <center><h4>Instagram API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/instagram.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/instagram.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <center><h4>Twitter API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/twitter.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/twitter.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <center><h4>TikTok API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/tiktok.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/tiktok.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <!-- <br> -->
-          <center><h4>Pinterest API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/pinterest.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/pinterest.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sm">
-          <!-- <br> -->
-          <center><h4>Youtube API Integration</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/youtube.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/youtube.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>Community management</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/community.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/community.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <!-- <br> -->
-          <center><h4>Analytics</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/analytics.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/analytics.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>Screenshot testing</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/testcafe.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/testcafe.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>Political hate speech </h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/hatespeech.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/hatespeech.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-project">
-          <center><h4>Sparkle LinkedInNET</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/sparkle.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="projects/sparkle.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- End Project Section -->
-
-
-<!-- Start Contact Section -->
-
-<section id="contacts" class="contact">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Contact</h2>
-        </div>
-
-        <div class="row mt-2">
-
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="info-box">
-                    <i class="bx bx-map"></i>
-                    <h3>My Address</h3>
-                    <p>Berlin</p>
-                    <p>Germany</p>
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <h4 style="text-align:left"><a href="https://www.hellofreshgroup.com/en/" style="color:#12d640">HelloFresh</a><br> </h4>
+                        <h5 style="text-align:left">August 2024 - Present</h5>
+                        <p style="text-align:left"><em>Software Engineer</em></p>
+                        <p style="text-align:left"><em>Technical Stack: Go, GraphQL, GRPs, Docker, Kubernetes, MongoDB, PostgreSQL, Kafka, Grafana, Honeycomb, CI/CD, DDD, ADD</em></p>
+                        <ul style="text-align:left">
+                            <li>Developed and optimized backend services in a microservices ecosystem, improving delivery routing performance</li>
+                            <li>Designed and optimized data flows that enable clients to seamlessly select their weekly mealkits, handling thousands of data points daily.</li>
+                            <li>Enhanced system observability using Prometheus metrics and tracing tools, leading to faster incident resolution</li>
+                            <li>Engaged in cross-team knowledge-sharing sessions, improving service documentation and onboarding practices</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                      <h4 style="text-align:left;"><a href="https://staffbase.com/en/" style="color:#12d640">Staffbase</a><br> </h4>
+                      <h5 style="text-align:left;">May 2022 - May 2024</h5>
+                      <p style="text-align:left"><em>Software Engineer</em></p>
+                      <p style="text-align:left"><em>Technical Stack: Golang, Open API, Kubernetes, Docker, Temporal, MongoDB, Grafana, CI/CD</em></p>
+                      <ul style="text-align:left;">
+                          <li>Developed REST APIs and implemented authentication protocols, such as OAuth, to securely expose data to clients</li>
+                          <li>Decreased system downtime by 10% through proactive monitoring and issue resolution</li>
+                          <li>Contributed to software design and architecture discussions, providing scalable and maintainable solutions</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <h4 style="text-align:left;"><a href="https://dirico.io/en/" style="color:#12d640">Dirico</a><br> </h4>
+                        <h5 style="text-align:left;">August 2019 - May 2022</h5>
+                        <p style="text-align:left"><em>Backend Developer</em></p>
+                        <p style="text-align:left"><em>Technical Stack: .NET, C#, REST API, SQL, Azure, Elasticsearch, Postman</em></p>
+                        <ul style="text-align:left;">
+                            <li>Designed and developed a software architecture resulting in 30% reduction in development time across multiple third-party API integration projects</li>
+                            <li>Led a team of engineers to develop a new product in agile environments that achieved a 92% customer satisfaction rating</li>
+                            <li>Implemented an analytics module for a SaaS application, resulting in enhanced user experience</li>
+                            <li>Initiated, wrote and coordinated the product documentation with 100+ articles that improved teams' productivity</li>
+                            <li>Hosted sharing knowledge sessions and collaborated with cross-functional teams through code reviews, pair programming, and best practices discussions</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <h4 style="text-align:left;"><a href="https://www.uni-koblenz.de/de" style="color:#12d640">University of Koblenz and Landau</a><br> </h4>
+                        <h5 style="text-align:left;">April 2020 - September 2020</h5>
+                        <p style="text-align:left"><em>Student Teaching Assistant</em></p>
+                        <p style="text-align:left"><em>Technical Stack: Java, Python</em></p>
+                        <ul style="text-align:left;">
+                            <li>Wrote technical requirements for the internal application</li>
+                            <li>Wrote Java and Python applications to analyze data</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <h4 style="text-align:left;"><a href="https://www.devexpress.com/" target="_blank" style="color:#12d640">Developer Express Inc.</a><br> </h4>
+                        <h5 style="text-align:left;">January 2009 - September 2018</h5>
+                        <p style="text-align:left"><em>1st and 2nd Level Technical Support</em></p>
+                        <p style="text-align:left"><em>Technical Stack: .NET, C#, MVC, SQL, JavaScript, Angular, Node.JS</em></p>
+                        <ul style="text-align:left;">
+                            <li>Led a customer success team that improved customer experience and satisfaction</li>
+                            <li>Executed customer engagement initiatives that resulted in a 30% increase in customer engagement</li>
+                            <li>Provided exceptional customer service resulting in a Net Promoter Score of 98%</li>
+                            <li>Resolved customer technical issues, resulting in an improved customer satisfaction and experience</li>
+                            <li>Initiated, managed, and launched a series of product tutorials on YouTube with 10.000+ views in 2 years</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-                <div class="info-box">
-                    <i class="bx bx-share-alt"></i>
-                    <h3>Social Profiles</h3>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/marina-rukavitsyna" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                        <a href="https://www.github.com/marinarukavitsyna" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-                        <a href="mailto:marina.rukavitsyna@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-                        <a href="https://medium.com/@marinarukavitsyna" target="_blank" class="medium"><i class="bx bxl-medium"></i></a>
+    <!-- End Experience Section -->
+
+    <!-- Start Project Section -->
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Projects</h2>
+          </div>
+
+          <div class="row portfolio-container">
+            <div class="col-lg-12">
+              <ul class="project-list">
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/hellofresh.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Weekly Menu, Merchandising & Shoppable Products</a></strong>
+                  <p>Developed a backend service powering HelloFresh's weekly menu selection and shoppable product offerings</p>
+                </li>
+                
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/community.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Social Media Community Management</a></strong>
+                  <p>Designed a community management platform for user engagement and content moderation using the following APIs: Facebook, Instagram, Twitter, TikTok, Pinterest, YouTube, LinkedIn</p>
+                </li>
+                
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/analytics.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Analytics</a></strong>
+                  <p>Built comprehensive analytics dashboards for social media performance monitoring</p>
+                </li>
+                
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/testcafe.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Screenshot Testing</a></strong>
+                  <p>Implemented visual regression testing framework using TestCafe for web applications</p>
+                </li>
+                
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/hatespeech.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Political Hate Speech Detection</a></strong>
+                  <p>Developed a machine learning model to detect and categorize political hate speech in social media content</p>
+                </li>
+                
+                <li class="portfolio-item filter-project">
+                  <strong><a href="projects/sparkle.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox">Sparkle LinkedInNET</a></strong>
+                  <p>Created an open-source .NET library for LinkedIn API integration with advanced features</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- End Project Section -->
+
+
+    <!-- Start Contact Section -->
+
+    <section id="contacts" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <div class="contact-intro text-center">
+                        <p>Feel free to reach out for opportunities, collaborations, or just to say hello!</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 mt-4 d-flex align-items-stretch">
-                <div class="info-box">
-                    <i class="bx bx-envelope"></i>
-                    <h3>Email</h3>
-                    <p>marina.rukavitsyna@gmail.com</p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="info-box h-100">
+                        <i class="bx bx-map"></i>
+                        <h3>Location</h3>
+                        <p>Berlin, Germany</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 mt-4 d-flex align-items-stretch">
-                <div class="info-box">
-                    <i class="bx bx-phone-call"></i>
-                    <h3>Contact</h3>
-                    <p>+49 178 1351095</p>
+
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="info-box h-100">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:marina.rukavitsyna@gmail.com" class="text-decoration-none">marina.rukavitsyna@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="info-box h-100">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Phone</h3>
+                        <p>+49 178 1351095</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="info-box h-100">
+                        <i class="bx bx-share-alt"></i>
+                        <h3>Social Profiles</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/marina-rukavitsyna" target="_blank" class="linkedin" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://www.github.com/marinarukavitsyna" target="_blank" class="github" title="GitHub"><i class="bx bxl-github"></i></a>
+                            <a href="mailto:marina.rukavitsyna@gmail.com" target="_blank" class="google" title="Email"><i class="bx bxl-google"></i></a>
+                            <a href="https://medium.com/@marinarukavitsyna" target="_blank" class="medium" title="Medium"><i class="bx bxl-medium"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- End Contact Section -->
+    <!-- End Contact Section -->
 
 
-<!-- Vendor JS Files -->
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-<script src="assets/vendor/counterup/counterup.min.js"></script>
-<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/venobox/venobox.min.js"></script>
-<script src="assets/vendor/typed.js/typed.min.js"></script>
-<script type="text/javascript">
-    var typed = new Typed('.typing',{
-        strings: ["DEI Advocate", "Developer", "Product Enthusiast"],
-        loop: true,
-        typeSpeed: 65,
-        backSpeed: 65
-    });
-</script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.min.js"></script>
+    <script type="text/javascript">
+        var typed = new Typed('.typing',{
+            strings: ["Leader","Software Developer", "Product Enthusiast","DEI Advocate"],
+            loop: true,
+            typeSpeed: 65,
+            backSpeed: 65
+        });
+    </script>
 
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+    <!-- Very Simple Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple mobile menu toggle
+            var menuToggle = document.getElementById('menuToggle');
+            var menuItems = document.getElementById('menuItems');
+            
+            if (menuToggle && menuItems) {
+                menuToggle.addEventListener('click', function() {
+                    menuItems.classList.toggle('active');
+                    
+                    // Toggle icon
+                    var icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        if (icon.classList.contains('bx-menu')) {
+                            icon.classList.remove('bx-menu');
+                            icon.classList.add('bx-x');
+                        } else {
+                            icon.classList.remove('bx-x');
+                            icon.classList.add('bx-menu');
+                        }
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menuToggle.contains(event.target) && !menuItems.contains(event.target)) {
+                        if (menuItems.classList.contains('active')) {
+                            menuItems.classList.remove('active');
+                            
+                            // Reset icon
+                            var icon = menuToggle.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('bx-x');
+                                icon.classList.add('bx-menu');
+                            }
+                        }
+                    }
+                });
+                
+                // Handle menu links to show sections
+                var menuLinks = document.querySelectorAll('.menu-items a[href^="#"]');
+                menuLinks.forEach(function(link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        var hash = this.getAttribute('href');
+                        var header = document.getElementById('header');
+                        
+                        if (hash === '#header') {
+                            // Home link clicked - show header fully
+                            header.style.height = '100vh';
+                            header.style.opacity = '1';
+                            document.getElementById('header').classList.remove('header-top');
+                            
+                            // Hide all sections
+                            var sections = document.querySelectorAll('section');
+                            sections.forEach(function(section) {
+                                section.classList.remove('section-show');
+                            });
+                        } else {
+                            // Other links clicked - minimize header
+                            header.style.height = '90px';
+                            document.getElementById('header').classList.add('header-top');
+                            
+                            // Hide all sections
+                            var sections = document.querySelectorAll('section');
+                            sections.forEach(function(section) {
+                                section.classList.remove('section-show');
+                            });
+                            
+                            // Show the target section
+                            var targetSection = document.querySelector(hash);
+                            if (targetSection) {
+                                targetSection.classList.add('section-show');
+                            }
+                        }
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768 && menuItems.classList.contains('active')) {
+                            menuItems.classList.remove('active');
+                            var icon = menuToggle.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('bx-x');
+                                icon.classList.add('bx-menu');
+                            }
+                        }
+                        
+                        // Scroll to the section
+                        var target = document.querySelector(hash);
+                        var navHeight = document.querySelector('.top-menu').offsetHeight;
+                        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                        var offsetPosition = targetPosition - navHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+            
+            // Also handle loading with hash in URL
+            if (window.location.hash) {
+                var hash = window.location.hash;
+                var header = document.getElementById('header');
+                
+                if (hash === '#header') {
+                    // Show header fully
+                    header.style.height = '100vh';
+                    header.style.opacity = '1';
+                    document.getElementById('header').classList.remove('header-top');
+                    
+                    // Hide all sections
+                    var sections = document.querySelectorAll('section');
+                    sections.forEach(function(section) {
+                        section.classList.remove('section-show');
+                    });
+                } else {
+                    // Minimize header
+                    header.style.height = '90px';
+                    document.getElementById('header').classList.add('header-top');
+                    
+                    // Hide all sections
+                    var sections = document.querySelectorAll('section');
+                    sections.forEach(function(section) {
+                        section.classList.remove('section-show');
+                    });
+                    
+                    // Show the target section
+                    var targetSection = document.querySelector(hash);
+                    if (targetSection) {
+                        targetSection.classList.add('section-show');
+                    }
+                }
+            }
+        });
+    </script>
 
+    <style>
+        /* Style for header transitions */
+        #header {
+            transition: height 0.4s ease, opacity 0.4s ease;
+        }
+        
+        #header.header-top {
+            height: 90px !important;
+            padding-top: 0 !important;
+        }
+        
+        #header.header-top .social-links, 
+        #header.header-top h2 {
+            display: none;
+        }
+        
+        .contact .info-box {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact .info-box i {
+            font-size: 32px;
+            color: #26a69a;
+            border-radius: 50%;
+            padding: 15px;
+            background: rgba(38, 166, 154, 0.08);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .contact .info-box h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .contact .info-box p {
+            padding: 0;
+            line-height: 24px;
+            font-size: 16px;
+            margin-bottom: 0;
+            color: #4a6375;
+        }
+        
+        .contact .info-box .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .contact .info-box .social-links a {
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(38, 166, 154, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .contact .info-box .social-links a:hover {
+            background: #26a69a;
+            color: #fff;
+        }
+        
+        .contact-intro p {
+            font-size: 18px;
+            color: #4a6375;
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

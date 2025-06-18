@@ -7,6 +7,61 @@
 !(function($) {
   "use strict";
 
+  // Smooth scroll for the top navigation
+  $(document).on('click', '.top-nav-menu a', function(e) {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      if (target.length) {
+        e.preventDefault();
+        
+        $('.top-nav-menu .active').removeClass('active');
+        $(this).parent('li').addClass('active');
+        
+        var scrollTo = target.offset().top - 70; // Adjusted for fixed header
+        
+        $('html, body').animate({
+          scrollTop: scrollTo
+        }, 800);
+        
+        if ($(this).parents('.top-nav-menu').length) {
+          $('.top-nav-menu').removeClass('active');
+          $('.top-nav-toggle i').removeClass('bx-x').addClass('bx-menu');
+        }
+        return false;
+      }
+    }
+  });
+
+  // Mobile navigation toggle
+  $(document).on('click', '.top-nav-toggle', function(e) {
+    $('.top-nav-menu').toggleClass('active');
+    $(this).find('i').toggleClass('bx-menu bx-x');
+  });
+
+  // Close mobile nav when clicking outside
+  $(document).click(function(e) {
+    var container = $(".top-nav-menu, .top-nav-toggle");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      if ($('.top-nav-menu').hasClass('active')) {
+        $('.top-nav-menu').removeClass('active');
+        $('.top-nav-toggle i').removeClass('bx-x').addClass('bx-menu');
+      }
+    }
+  });
+
+  // Activate menu items on scroll
+  $(window).scroll(function() {
+    var scrollDistance = $(window).scrollTop() + 100;
+    
+    // Highlight menu item based on scroll position
+    $('section').each(function(i) {
+      if ($(this).position().top <= scrollDistance) {
+        $('.top-nav-menu .active').removeClass('active');
+        $('.top-nav-menu li').eq(i).addClass('active');
+      }
+    });
+  });
+
   // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
